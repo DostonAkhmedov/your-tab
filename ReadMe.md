@@ -24,3 +24,6 @@ yuklab olishimni o'ylab, sayt nomini esga tushirib, vaqt ketkazib o'tirgandan
 ko'ra "your-tab.uz" ga o'z login va parolim bilan kirib, pusu degan katalogdan  
 birin-ketin shu addresslarga murojat qilib, o'zimga kerakli qismini topishim  
 mumkin. Natijada ish avvalgidan ancha osonlashadi.
+
+####Yordam uchun:
+[github](https://github.com/DostonAkhmedov/your-tab)
