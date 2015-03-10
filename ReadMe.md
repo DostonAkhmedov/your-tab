@@ -1,6 +1,6 @@
-#your-tab.uz
+#your-tab
 ---
-tab bu ilgak ma'nosini beradi, "your tab" sening ilgaking. Bu Web saytning  
+tab bu ilgak ma'nosini beradi, *"your tab"* _sening ilgaking_. Bu Web saytning
 vazifasi har bir foydalanuvchi uchun o'zining eng ko'p foydalanadigan   
 saytlar ro'yhatini shakllantirishi mumkin. Buning uchun u yangi katalog   
 (ilgak) yaratishi mumkin. Albatta uni nomini va unda joylashgan shaxsiy  
@@ -21,9 +21,9 @@ yozish orqali yangi saytni ro'yxatga qo'shishingiz mumkin.
 Masalan men turk seriali "Kurtlar Vadisi Pusu" serialini har haftada chiqadigan  
 bo'limini doimiy ko'rib boraman. Men yangi chiqqan bo'limni qaysi tas-ix saytdan  
 yuklab olishimni o'ylab, sayt nomini esga tushirib, vaqt ketkazib o'tirgandan  
-ko'ra "your-tab.uz" ga o'z login va parolim bilan kirib, pusu degan katalogdan  
+ko'ra *"your-tab.heroku.com"* ga o'z login va parolim bilan kirib, pusu degan katalogdan
 birin-ketin shu addresslarga murojat qilib, o'zimga kerakli qismini topishim  
 mumkin. Natijada ish avvalgidan ancha osonlashadi.
 
-####Yordam uchun:
-[github](https://github.com/DostonAkhmedov/your-tab)
+####Saytning ko'rinishi:
+[your-tab](https://your-tab.heroku.com)
