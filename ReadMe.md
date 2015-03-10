@@ -17,7 +17,7 @@ berishingiz mumkin. Tas-ix qidiruv dan foydalanib yoki boshqa tas-iz bo'lmagan
 saytlar ro'yxatini qidirib topib yoki o'zingiz yoddan bilgan sayt addressini  
 yozish orqali yangi saytni ro'yxatga qo'shishingiz mumkin. 
 
-###Bu tizimning avzallik taraflari:  
+###Bu tizimning avzallik taraflari:
 Masalan men turk seriali "Kurtlar Vadisi Pusu" serialini har haftada chiqadigan  
 bo'limini doimiy ko'rib boraman. Men yangi chiqqan bo'limni qaysi tas-ix saytdan  
 yuklab olishimni o'ylab, sayt nomini esga tushirib, vaqt ketkazib o'tirgandan  
