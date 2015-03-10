@@ -10,14 +10,12 @@ mumkin yoki Kitob nomli katalog yaratib unga sevimli jurnal va kitoblarini
 yuklab olishi mumkin bo'lgan saytlar ro'yxatini ilib qo'yadi.  
 
 ###Interfeysi
-Birinchi saytga kirganda kirish qismi ochiladi va saytga o'zingizning shaxsiy  
-login va parolingiz yordamida tizimga kirasiz. Va oynada shaxsiy oynangiz  
-ochiladi. Siz uni o'zingiz xohlagandek tarzda o'zgartirib, har xil bezaklar  
-berishingiz mumkin. Tas-ix qidiruv dan foydalanib yoki boshqa tas-iz bo'lmagan  
-saytlar ro'yxatini qidirib topib yoki o'zingiz yoddan bilgan sayt addressini  
++ Birinchi saytga kirganda kirish qismi ochiladi va saytga o'zingizning shaxsiy login va parolingiz yordamida tizimga kirasiz.
++ Va oynada shaxsiy oynangiz ochiladi. Siz uni o'zingiz xohlagandek tarzda o'zgartirib, har xil bezaklar berishingiz mumkin.
++ Tas-ix qidiruv dan foydalanib yoki boshqa tas-iz bo'lmagan saytlar ro'yxatini qidirib topib yoki o'zingiz yoddan bilgan sayt addressini
 yozish orqali yangi saytni ro'yxatga qo'shishingiz mumkin. 
 
-###Bu tizimning avzallik taraflari:
+###<dt>Bu tizimning avzallik taraflari:</dt>
 Masalan men turk seriali "Kurtlar Vadisi Pusu" serialini har haftada chiqadigan  
 bo'limini doimiy ko'rib boraman. Men yangi chiqqan bo'limni qaysi tas-ix saytdan  
 yuklab olishimni o'ylab, sayt nomini esga tushirib, vaqt ketkazib o'tirgandan  
@@ -25,5 +23,5 @@ ko'ra *"your-tab.heroku.com"* ga o'z login va parolim bilan kirib, pusu degan ka
 birin-ketin shu addresslarga murojat qilib, o'zimga kerakli qismini topishim  
 mumkin. Natijada ish avvalgidan ancha osonlashadi.
 
-####Saytning ko'rinishi:
+####<blockquote> <p>Saytning ko'rinishi:</p> </blockquote>
 [your-tab](https://your-tab.heroku.com)
