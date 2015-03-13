@@ -1,0 +1,21 @@
+@(list: List[tabs])
+
+@main("your-tabs") {
+
+    @navbar("your-tabs")
+
+    <div class="container">
+        <div class="main-content">
+            <div class="row">
+            @for(mylist <- list) {
+                <div class="col-xs-3">
+                    <a href="@("https://www." + mylist.address)"><img src="@routes.Assets.at("images/" + mylist.img_name)" class="img-responsive img-thumbnail center-block"></a>
+                    <h4>@mylist.name
+                        : <a href="@("https://www." + mylist.address)">@("https://www." + mylist.address)</a></h4>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+
+}

@@ -9,11 +9,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">Creat your tab</a>
+            <a href="@routes.Application.index()" class="navbar-brand">Creat your tab</a>
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav pull-right">
-                <li class="@if(navbar_name=="admin"){active}"><a href="@routes.Application.admin()">Administrator</a></li>
+                <li class="@if(navbar_name=="admin"){active}"><a href="@routes.admin.admin()">Administrator</a></li>
+                <li class="@if(navbar_name=="your-tabs"){active}"><a href="@routes.admin.your_tabs()">Your tabs</a></li>
             </ul>
         </div>
     </div>
