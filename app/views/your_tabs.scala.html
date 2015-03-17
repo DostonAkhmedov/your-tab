@@ -10,8 +10,9 @@
             @for(mylist <- list) {
                 <div class="col-xs-3">
                     <a href="@("https://www." + mylist.address)"><img src="@routes.Assets.at("images/" + mylist.img_name)" class="img-responsive img-thumbnail center-block"></a>
-                    <h4>@mylist.name
-                        : <a href="@("https://www." + mylist.address)">@("https://www." + mylist.address)</a></h4>
+                    <h4>@mylist.name : </h4>
+                        <h4><a href="@("https://www." + mylist.address)">@("https://www." + mylist.address)</a></h4>
+                    <br/>
                 </div>
             }
             </div>
