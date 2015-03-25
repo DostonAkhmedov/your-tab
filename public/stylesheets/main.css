@@ -16,15 +16,19 @@ body, html{
     font-weight: bold;
 }
 .navbar-nav>li>a{
-    color: #283886;
+    color: #ffffff;
 }
 .navbar-nav>li>a:focus,
 .navbar-nav>li>a:hover{
-    background-color: #c9120e;
+    background-color: #ffffff;
+    color:#000000
 }
 .navbar-nav>li.active{
-    background-color: #a60b0a;
+    background-color: #ffffff;
     border-radius: 2px;
+}
+.navbar-nav>li.active>a{
+    color:#000000
 }
 .black{
     color: #000000;

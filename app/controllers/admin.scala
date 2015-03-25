@@ -5,16 +5,34 @@ package controllers
  */
 
 import play.api.mvc._
-import models.tabs
+import play.api.db.slick.Config.driver.simple._
+import play.api.db.slick._
+import models._
+import play.api.Logger
 
-object admin extends Controller{
+import  scala.slick.lifted.TableQuery
+
+class admins extends Controller{
+
+  val table = TableQuery[TabTable]
+
+  def your_tabs = DBAction { implicit rs =>
+    Logger.info(s"SHOW_ALL = ${table.list}")
+    Ok(views.html.your_tabs(table.list))
+  }
 
   def admin = Action {
     Ok(views.html.admin())
   }
 
-  def your_tabs = Action {
-    Ok(views.html.your_tabs(tabs.table))
-  }
+//  class users extends Controller{
+//
+//    val user_table = TableQuery[UserTable]
+//
+//    def all_users = DBAction { implicit rs =>
+//    Logger.info(s"SHOW_ALL = ${user_table.list}")
+//      Ok()
+//    }
+//  }
 
 }
