@@ -11,12 +11,6 @@ case class tabs(id: Option[Int],
                 address: String,
                 img_name: String)
 
-case class users(id: Option[Int],
-                 First_name: String,
-                 Last_name: String,
-                 Mail_address: String,
-                 Password: String)
-
 //object tabs {
 //
 //  var table = List(
@@ -44,17 +38,17 @@ class TabTable(tag: Tag) extends Table[tabs](tag, "Tabs"){
   def * = (id.?, name, address, img_name) <> (tabs.tupled, tabs.unapply _)
 
 }
-//
-//class UserTable(tag: Tag) extends  Table[users](tag, "Users"){
-//
-//  def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
-//
-//  def First_name = column[String]("FIRST_NAME", O.Default(""))
-//
-//  def Last_name = column[String]("LAST_NAME", O.Default(""))
-//
-//  def Mail_address = column[String]("MAIL-ADDRESS", O.Default(""))
-//
-//  def Password = column[String]("PASSWORD", O.Default(""))
-//
-//}
+
+object for_number_user{
+
+  var cnt=0
+  def inc_num = {
+    cnt+=1
+    cnt
+  }
+
+  def inc_null = {
+    cnt=0
+  }
+
+}

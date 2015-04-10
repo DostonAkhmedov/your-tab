@@ -1,0 +1,49 @@
+@(allusers: List[user])
+
+@main("all_users"){
+
+    @navbar("all_users")
+
+    <div class="container">
+        <div class="main-content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>First_name</th>
+                        <th>Last_name</th>
+                        <th>Mail_address</th>
+                        <th>Password</th>
+                        <th>Send message user</th>
+                        <th>user_id</th>
+                        <th>delete_user</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(user <- allusers){
+                        <tr>
+                            <td>@for_number_user.inc_num</td>
+                            <td>@user.First_name</td>
+                            <td>@user.Last_name</td>
+                            <td>@user.Mail_address</td>
+                            <td>@user.Password</td>
+                            <td>
+                                <textarea placeholder="message...">
+                                </textarea>
+                                <a class="btn btn-primary">Send</a>
+                            </td>
+                            <td>@user.id</td>
+                            <td>
+                                <a href="@routes.Users.remove(user.id.get)">
+                                    <button class="btn btn-danger">Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    @for_number_user.inc_null
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+}

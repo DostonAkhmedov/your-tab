@@ -12,7 +12,7 @@ import play.api.Logger
 
 import  scala.slick.lifted.TableQuery
 
-class admins extends Controller{
+class Admin extends Controller {
 
   val table = TableQuery[TabTable]
 
@@ -24,15 +24,4 @@ class admins extends Controller{
   def admin = Action {
     Ok(views.html.admin())
   }
-
-//  class users extends Controller{
-//
-//    val user_table = TableQuery[UserTable]
-//
-//    def all_users = DBAction { implicit rs =>
-//    Logger.info(s"SHOW_ALL = ${user_table.list}")
-//      Ok()
-//    }
-//  }
-
 }

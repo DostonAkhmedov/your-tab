@@ -1,0 +1,57 @@
+@()
+
+@main("add new user") {
+
+    @navbar("add")
+
+    <div class="container">
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-4">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="text-center text-success">Register</h4>
+                        </div>
+                        <div class="panel-body">
+                            <form class="@routes.Users.add()" method="post">
+                                <div class="form-group">
+                                    <div class="input-group underline">
+                                        <label>
+                                            First name
+                                            <input class="form-control" placeholder="Your name" type="text" name="First_name" required="">
+                                        </label>
+                                    </div>
+                                    <div class="input-group underline">
+                                        <label>
+                                            Last name
+                                            <input class="form-control" placeholder="Last name" type="text" name="Last_name" required="">
+                                        </label>
+                                    </div>
+                                    <div class="input-group underline">
+                                        <label>
+                                            Mail address
+                                            <input class="form-control" placeholder="Your email" type="email" name="Mail_address" required="">
+                                        </label>
+                                    </div>
+                                    <div class="input-group underline">
+                                        <label>
+                                            Password
+                                            <input class="form-control" placeholder="Your password" type="password" name="Password" required="">
+                                        </label>
+                                    </div>
+                                    <div class="input-group underline">
+                                        <label>
+                                            Confirm password
+                                            <input class="form-control" placeholder="Confirm password" type="password" required="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
