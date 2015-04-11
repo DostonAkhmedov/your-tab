@@ -5,7 +5,7 @@
 # Home page
 
 GET         /                       controllers.Application.index
-GET         /user/new               @controllers.Users.showAddForm
+GET         /users/list             @controllers.Users.showAddForm
 POST        /user/new               @controllers.Users.add
 GET         /admin                  @controllers.Admin.admin
 GET         /tabs                   @controllers.Admin.your_tabs
