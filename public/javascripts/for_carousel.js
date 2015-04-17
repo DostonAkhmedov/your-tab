@@ -1,109 +1,114 @@
-// set and cache variables
-var w, container, carousel, item, radius, itemLength, rY, ticker, fps;
-var mouseX = 0;
-var mouseY = 0;
-var mouseZ = 0;
-var addX = 0;
-
-
-// fps counter created by: https://gist.github.com/sharkbrainguy/1156092,
-// no need to create my own :)
-var fps_counter = {
-
-    tick: function ()
-    {
-        // this has to clone the array every tick so that
-        // separate instances won't share state
-        this.times = this.times.concat(+new Date());
-        var seconds, times = this.times;
-
-        if (times.length > this.span + 1)
-        {
-            times.shift(); // ditch the oldest time
-            seconds = (times[times.length - 1] - times[0]) / 1000;
-            return Math.round(this.span / seconds);
+jQuery(document).ready(function ($) {
+    var options = {
+        $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
+            $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
+            $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+            $AutoCenter: 1,                                  //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+            $SpacingX: 25                                   //[Optional] Horizontal space between each item in pixel, default value is 0
         }
-        else return null;
-    },
+    };
 
-    times: [],
-    span: 20
-};
-var counter = Object.create(fps_counter);
+    var jssor_slider1 = new $JssorSlider$("slider1_container", options);
 
+    //responsive code begin
+    //you can remove responsive code if you don't want the slider scales while window resizes
+    function ScaleSlider() {
+        var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
+        if (parentWidth) {
+            var sliderWidth = parentWidth;
 
+            //keep the slider width no more than 800
+            sliderWidth = Math.min(sliderWidth, 800);
 
-$(document).ready( init )
-
-function init()
-{
-    w = $(window);
-    container = $( '#contentContainer' );
-    carousel = $( '#carouselContainer' );
-    item = $( '.carouselItem' );
-    itemLength = $( '.carouselItem' ).length;
-    fps = $('#fps');
-    rY = 360 / itemLength;
-    radius = Math.round( (250) / Math.tan( Math.PI / itemLength ) );
-
-    // set container 3d props
-    TweenMax.set(container, {perspective:600})
-    TweenMax.set(carousel, {z:-(radius)})
-
-    // create carousel item props
-
-    for ( var i = 0; i < itemLength; i++ )
-    {
-        var $item = item.eq(i);
-        var $block = $item.find('.carouselItemInner');
-
-        //thanks @chrisgannon!
-        TweenMax.set($item, {rotationY:rY * i, z:radius, transformOrigin:"50% 50% " + -radius + "px"});
-
-        animateIn( $item, $block )
+            jssor_slider1.$ScaleWidth(sliderWidth);
+        }
+        else
+            window.setTimeout(ScaleSlider, 30);
     }
+    ScaleSlider();
 
-    // set mouse x and y props and looper ticker
-    window.addEventListener( "mousemove", onMouseMove, false );
-    ticker = setInterval( looper, 1000/60 );
-}
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+    //responsive code end
+});
 
-function animateIn( $item, $block )
-{
-    var $nrX = 360 * getRandomInt(2);
-    var $nrY = 360 * getRandomInt(2);
+jQuery(document).ready(function($){
+    $('#carousel').carousel({width: 870,
+        height: 350,
+        itemWidth:120,
+        horizontalRadius:270,
+        verticalRadius:85,
+        resize:false,
+        mouseScroll:false,
+        mouseDrag:true,
+        scaleRatio:0.4,
+        scrollbar:true,
+        tooltip:true,
+        mouseWheel:true,
+        mouseWheelReverse:true});
+});
 
-    var $nx = -(2000) + getRandomInt( 4000 )
-    var $ny = -(2000) + getRandomInt( 4000 )
-    var $nz = -4
-    000 +  getRandomInt( 4000 )
 
-    var $s = 1.5 + (getRandomInt( 10 ) * .1)
-    var $d = 1 - (getRandomInt( 8 ) * .1)
+//-------------------------------------------
 
-    TweenMax.set( $item, { autoAlpha:1, delay:$d } )
-    TweenMax.set( $block, { z:$nz, rotationY:$nrY, rotationX:$nrX, x:$nx, y:$ny, autoAlpha:0} )
-    TweenMax.to( $block, $s, { delay:$d, rotationY:0, rotationX:0, z:0,  ease:Expo.easeInOut} )
-    TweenMax.to( $block, $s-.5, { delay:$d, x:0, y:0, autoAlpha:1, ease:Expo.easeInOut} )
-}
 
-function onMouseMove(event)
-{
-    mouseX = -(-(window.innerWidth * .5) + event.pageX) * .0025;
-    mouseY = -(-(window.innerHeight * .5) + event.pageY ) * .01;
-    mouseZ = -(radius) - (Math.abs(-(window.innerHeight * .5) + event.pageY ) - 200);
-}
+jQuery(document).ready(function ($) {
+    var options = {
+        $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+        $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
+        $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+        $PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
 
-// loops and sets the carousel 3d properties
-function looper()
-{
-    addX += mouseX
-    TweenMax.to( carousel, 1, { rotationY:addX, rotationX:mouseY, ease:Quint.easeOut } )
-    TweenMax.set( carousel, {z:mouseZ } )
-    fps.text( 'Framerate: ' + counter.tick() + '/60 FPS' )
-}
+        $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+        $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+        $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+        //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+        //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+        $SlideSpacing: 5, 					                //[Optional] Space between each slide in pixels, default value is 0
+        $DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+        $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+        $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+        $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+        $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
 
-function getRandomInt( $n )
-{
-    return Math.floor((Math.random()*$n)+1);
-}
+        $ThumbnailNavigatorOptions: {
+            $Class: $JssorThumbnailNavigator$,              //[Required] Class to create thumbnail navigator instance
+            $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+
+            $ActionMode: 1,                                 //[Optional] 0 None, 1 act by click, 2 act by mouse hover, 3 both, default value is 1
+            $AutoCenter: 3,                             //[Optional] Auto center thumbnail items in the thumbnail navigator container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 3
+            $Lanes: 1,                                      //[Optional] Specify lanes to arrange thumbnails, default value is 1
+            $SpacingX: 1,                                   //[Optional] Horizontal space between each thumbnail in pixel, default value is 0
+            $SpacingY: 0,                                   //[Optional] Vertical space between each thumbnail in pixel, default value is 0
+            $DisplayPieces: 5,                              //[Optional] Number of pieces to display, default value is 1
+            $ParkingPosition: 0,                            //[Optional] The offset position to park thumbnail
+            $Orientation: 1,                                //[Optional] Orientation to arrange thumbnails, 1 horizental, 2 vertical, default value is 1
+            $DisableDrag: true                              //[Optional] Disable drag or not, default value is false
+        }
+    };
+
+    var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+    //responsive code begin
+    //you can remove responsive code if you don't want the slider scales while window resizes
+    function ScaleSlider() {
+        var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
+        if (parentWidth) {
+            var sliderWidth = parentWidth;
+
+            //keep the slider width no more than 600
+            sliderWidth = Math.min(sliderWidth, 600);
+
+            jssor_slider1.$ScaleWidth(sliderWidth);
+        }
+        else
+            window.setTimeout(ScaleSlider, 30);
+    }
+    ScaleSlider();
+
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+    //responsive code end
+});

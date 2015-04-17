@@ -4,13 +4,28 @@
 
 # Home page
 
-GET         /                       controllers.Application.index
-GET         /users/list             @controllers.Users.showAddForm
-POST        /user/new               @controllers.Users.add
-GET         /admin                  @controllers.Admin.admin
-GET         /tabs                   @controllers.Admin.your_tabs
-GET         /users                  @controllers.Users.all_users
-GET         /user/:id/remove        @controllers.Users.remove(id: Int)
+GET         /                          controllers.Application.index
+GET         /users/list                @controllers.Users.showAddForm
+POST        /user/new                  @controllers.Users.add
+GET         /admin                     @controllers.Admin.admin
+GET         /users                     @controllers.Users.all_users
+GET         /user/:id/remove           @controllers.Users.remove(id: Int)
+
+
+GET         /tab/new                   @controllers.Tabs.showAddForm
+POST        /tab/new                   @controllers.Tabs.add
+GET         /tab/list                  @controllers.Tabs.list
+GET         /tab/:id/remove            @controllers.Tabs.remove(id: Int)
+POST        /tab/:id/edit              @controllers.Tabs.update(id: Int)
+GET         /tab/:id/edit              @controllers.Tabs.showEditForm(id: Int)
+
+GET         /categories/list            @controllers.Categories.list
+GET         /categories/new             @controllers.Categories.showAddForm
+POST        /categories/new             @controllers.Categories.add
+GET         /category/:id/remove        @controllers.Categories.remove(id: Int)
+POST        /category/:id/edit          @controllers.Categories.update(id: Int)
+GET         /category/:id/edit          @controllers.Categories.showEditForm(id: Int)
+
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file           controllers.Assets.at(path="/public", file)
+GET         /assets/*file              controllers.Assets.at(path="/public", file)

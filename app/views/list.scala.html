@@ -1,0 +1,44 @@
+@(list: List[TabForDisplay], categories: List[Category])
+
+@main("Table") {
+
+    @navbar("list")
+
+    <div class="container">
+        <div class="main-content">
+            @for(category <- categories) {
+                <a class="btn btn-danger" href="">@category.name</a>
+            }
+            <a class="btn btn-primary" href="@routes.Categories.add()" title="add new category"><span class="fa fa-plus"></span></a>
+            <a href="@routes.Categories.list()">
+                <button class="btn btn-warning"><span class="fa fa-edit"></span></button>
+            </a>
+            <br/>
+            <br/>
+            <div class="row">
+            @for(tablist <- list) {
+                <div class="col-xs-3">
+                    <div class="list-group-item active">@tablist.tab.name</div>
+                    <div class="list-group-item">
+                        <a href="@("https://www." + tablist.tab.address)"><p class="text-center"><img src="@routes.Assets.at("images/" + tablist.tab.name + ".jpg")" class="img-responsive"></p>
+                        </a>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="@("https://www." + tablist.tab.address)">@("https://www." + tablist.tab.address)</a>
+                        <br/>
+                        <a href="@routes.Tabs.showEditForm(tablist.tab.id.get)" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="@routes.Tabs.remove(tablist.tab.id.get)" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </div>
+            }
+            </div>
+            <br/>
+            <a class="btn btn-danger" href="@routes.Tabs.add()" title="add new tab"><span class="fa fa-plus-circle"></span></a>
+        </div>
+    </div>
+
+}

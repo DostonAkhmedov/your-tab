@@ -1,0 +1,37 @@
+@(tab: Tab, categories: List[Category])
+
+@main("Edit") {
+
+  @navbar("addTab")
+
+  <div class="container main-content">
+  <div class="main-content">
+    <h2 class="text-center">Edit tabs</h2>
+    <form class="@routes.Categories.update(tab.id.get)" method="post">
+      <div class="form-group">
+        <label>Name
+        <input type="text" class="form-control"
+        name="name" value="@tab.name" required="">
+        </label>
+      </div>
+      <div class="form-group">
+        <label> Address
+        <input type="text" class="form-control"
+        name="address" required="" value="@tab.address">
+        </label>
+      </div>
+      <div class="form-group">
+        <label>Category
+        <select name="category" class="form-control">
+        @for(category <- categories) {
+          <option value="@category.id">@category.name</option>
+        }
+        </select>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  </div>
+}

@@ -1,0 +1,20 @@
+@(category: Category)
+
+@main("Edit") {
+
+  @navbar("addCategory")
+
+  <div class="container">
+    <div class="main-content">
+    <h2 class="text-center">Edit Category</h2>
+    <form class="@routes.Categories.update(category.id.get)" method="post">
+      <div class="form-group">
+        <label for="inp-name">Name</label>
+        <input type="text" class="form-control" id="inp-name"
+        name="name" value="@category.name" required="">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  </div>
+}

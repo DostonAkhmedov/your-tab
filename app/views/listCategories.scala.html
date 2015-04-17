@@ -1,0 +1,35 @@
+@(categories: List[Category])
+
+@main("Categories") {
+
+  @navbar("categories")
+
+  <div class="container">
+  <div class="main-content">
+    <h1 class="text-center">Changing Categories</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+      @for(category<- categories) {
+        <tr>
+          <td>@category.name</td>
+          <td class="pull-right">
+            <a href="@routes.Categories.showEditForm(category.id.get)">
+              <button class="btn btn-warning">Edit</button>
+            </a>
+            <a href="@routes.Categories.remove(category.id.get)">
+              <button class="btn btn-danger">Delete</button>
+            </a>
+          </td>
+        </tr>
+      }
+        <a class="btn btn-warning" href="@routes.Categories.add()" title="add new category"><span class="fa fa-plus"></span></a>
+      </tbody>
+    </table>
+  </div>
+</div>
+}
