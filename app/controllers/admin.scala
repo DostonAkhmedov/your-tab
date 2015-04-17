@@ -14,12 +14,13 @@ import  scala.slick.lifted.TableQuery
 
 class Admin extends Controller {
 
-  val table = TableQuery[TabTable]
-
-  def your_tabs = DBAction { implicit rs =>
-    Logger.info(s"SHOW_ALL = ${table.list}")
-    Ok(views.html.your_tabs(table.list))
-  }
+  //  val table = TableQuery[TabTable]
+  //  val tabfordisp = TableQuery[TabForDisplay]
+  //
+  //  def your_tabs = DBAction { implicit rs =>
+  //    Logger.info(s"SHOW_ALL = ${table.list}")
+  //    Ok(views.html.your_tabs(tabfordisp.list))
+  //  }
 
   def admin = Action {
     Ok(views.html.admin())
